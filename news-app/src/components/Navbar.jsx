@@ -16,7 +16,12 @@ const Navbar = () => {
       link: "Register",
     },
   ];
-  return <header className="bg-black">{/*hearder nav logo Alx news*/}</header>;
+  return (
+    <header className="bg-black">
+      {/*hearder nav logo Alx news*/}
+      <nav className="px-4 py-4"></nav>
+    </header>
+  );
 };
 
 export default Navbar;
