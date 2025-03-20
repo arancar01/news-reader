@@ -79,6 +79,10 @@ const Navbar = () => {
             className="flex px-4 py-2 w-64 outline-none"
           />
         </form>
+        {/*(button login) */}
+        <button className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 ">
+          log in
+        </button>
       </nav>
     </header>
   );
