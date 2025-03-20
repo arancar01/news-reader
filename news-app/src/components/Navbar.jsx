@@ -1,9 +1,10 @@
 import React from "react";
 //import alxnewsLogo from "../assets/alxnews.png";
 import { NavLink } from "react-router-dom";
+
 import { CiFacebook } from "react-icons/ci";
 import { RxDiscordLogo } from "react-icons/rx";
-import { FaWhatsapp } from "react-icons/fa";
+import { FaBars, FaWhatsapp } from "react-icons/fa";
 
 const Navbar = () => {
   const navItems = [
@@ -29,13 +30,13 @@ const Navbar = () => {
       </nav>
     </header>*/
 
-    <header className="bg-black flex items-center justify-center h-16">
+    <header className="bg-black h-16 text-white justify-items-center  ">
       {/*logo Alx news*/}
-      <nav className="flex gap-3 flex items-center justify-between px-6 py-4">
-        <a href="/" className="text-xl font-bold text-white ">
+      <nav className=" gap-3 flex  justify-between px-6 py-4">
+        <a href="/" className="flex text-xl font-bold text-white ">
           Alx
           <span className="text-red-400">
-            <span className="text-blue-500">N</span>EWS
+            <span className=" text-blue-500">N</span>EWS
           </span>
         </a>
         {/*navItems */}
@@ -59,7 +60,7 @@ const Navbar = () => {
           </ul>
         */}
 
-        <ul className="flex items-center justify-center gap-6 ">
+        <ul className=" justify-center gap-6 hidden sm:flex">
           {navItems.map(({ path, link }) => (
             <li key={path}>
               <NavLink
@@ -72,19 +73,25 @@ const Navbar = () => {
           ))}
         </ul>
         {/*(Search) */}
-        <form className="hidden sm:flex items-center justify-center w-1/3 h-10 p-4 bg-gray-100 border border-gray-400 rounded-lg overflow-hidden">
-          <input
-            type="text"
-            placeholder="search here"
-            className="flex px-4 py-2 w-64 outline-none"
-          />
-        </form>
+        <div className=" sm:flex hidden  ">
+          <form className="flex bg-gray-100 border border-gray-400 rounded-lg overflow-hidden text-black">
+            <input
+              type="text "
+              placeholder="search here"
+              className="flex px-4 py-2 w-64 outline-none items-center"
+            />
+          </form>
+        </div>
         {/*(button login) */}
-        <button className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 ">
-          log in
-        </button>
+        <div className="hidden md:flex items-center ml-auto">
+          <NavLink to="/login">
+            <button className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition duration-300 shadow-md">
+              Login
+            </button>
+          </NavLink>
+        </div>
         {/*(logos socials) */}
-        <div className="text-white lg:flex gap-3 items-center hidden ">
+        <div className="text-white md:flex gap-3 items-center hidden ">
           {/*p-10*/} {/* sm"640px " lg"1024px" 2xl"1536px" */}
           <a href="/" className="hover:text-blue-500">
             <CiFacebook size={20} />
