@@ -83,6 +83,19 @@ const Navbar = () => {
         <button className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 ">
           log in
         </button>
+        {/*(logos socials) */}
+        <div className="text-white lg:flex gap-3 items-center hidden ">
+          {/*p-10*/} {/* sm"640px " lg"1024px" 2xl"1536px" */}
+          <a href="/" className="hover:text-blue-500">
+            <CiFacebook size={20} />
+          </a>
+          <a href="/" className="hover:text-purple-700">
+            <RxDiscordLogo size={20} />
+          </a>
+          <a href="/" className="hover:text-green-500">
+            <FaWhatsapp size={20} />
+          </a>
+        </div>
       </nav>
     </header>
   );
