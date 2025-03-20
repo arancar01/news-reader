@@ -1,6 +1,9 @@
 import React from "react";
 //import alxnewsLogo from "../assets/alxnews.png";
 import { NavLink } from "react-router-dom";
+import { CiFacebook } from "react-icons/ci";
+import { RxDiscordLogo } from "react-icons/rx";
+import { FaWhatsapp } from "react-icons/fa";
 
 const Navbar = () => {
   const navItems = [
@@ -26,10 +29,10 @@ const Navbar = () => {
       </nav>
     </header>*/
 
-    <header className="bg-black">
+    <header className="bg-black flex items-center justify-center h-16">
       {/*logo Alx news*/}
-      <nav className="flex items-center justify-between px-6 py-4">
-        <a href="/" className="text-xl font-bold text-white">
+      <nav className="flex gap-3 flex items-center justify-between px-6 py-4">
+        <a href="/" className="text-xl font-bold text-white ">
           Alx
           <span className="text-red-400">
             <span className="text-blue-500">N</span>EWS
@@ -56,7 +59,7 @@ const Navbar = () => {
           </ul>
         */}
 
-        <ul className="flex items-center justify-center gap-6">
+        <ul className="flex items-center justify-center gap-6 ">
           {navItems.map(({ path, link }) => (
             <li key={path}>
               <NavLink
@@ -68,6 +71,14 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
+        {/*(Search) */}
+        <form className="hidden sm:flex items-center justify-center w-1/3 h-10 p-4 bg-gray-100 border border-gray-400 rounded-lg overflow-hidden">
+          <input
+            type="text"
+            placeholder="search here"
+            className="flex px-4 py-2 w-64 outline-none"
+          />
+        </form>
       </nav>
     </header>
   );
