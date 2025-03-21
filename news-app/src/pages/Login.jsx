@@ -1,10 +1,9 @@
 import React from "react";
 import { useFormik } from "formik";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Login = () => {
   const navigate = useNavigate();
-
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -12,7 +11,6 @@ const Login = () => {
     },
     onSubmit: (values) => {
       const user = JSON.parse(localStorage.getItem("user"));
-
       if (
         user &&
         user.email === values.email &&
@@ -24,7 +22,6 @@ const Login = () => {
       }
     },
   });
-
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <form
@@ -32,7 +29,6 @@ const Login = () => {
         className="bg-white p-6 rounded shadow-md w-full max-w-md"
       >
         <h2 className="text-xl font-bold mb-4">Login</h2>
-
         <input
           name="email"
           type="email"
@@ -41,7 +37,6 @@ const Login = () => {
           onChange={formik.handleChange}
           className="border px-3 py-2 w-full mb-3"
         />
-
         <input
           name="password"
           type="password"
@@ -50,13 +45,20 @@ const Login = () => {
           onChange={formik.handleChange}
           className="border px-3 py-2 w-full mb-4"
         />
-
         <button
           type="submit"
           className="w-full bg-blue-500 text-white py-2 rounded"
         >
           Login
         </button>
+        <Link to="/signin">
+          <button
+            type="button"
+            className="w-full mt-3 bg-gray-500 text-white py-2 rounded"
+          >
+            Create Account
+          </button>
+        </Link>
       </form>
     </div>
   );
