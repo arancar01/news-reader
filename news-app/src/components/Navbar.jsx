@@ -107,6 +107,20 @@ const Navbar = () => {
       </nav>
 
       {/* Mobile Menu - appears only on small screens */}
+      {isMenuOpen && (
+        <div className="md:hidden flex flex-col items-center bg-gray-900 text-white absolute top-16 left-0 w-full py-4 shadow-lg z-50">
+          {navItems.map(({ path, link }) => (
+            <NavLink
+              key={path}
+              to={path}
+              className="py-2 text-lg hover:text-blue-400"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {link}
+            </NavLink>
+          ))}
+        </div>
+      )}
     </header>
   );
 };
