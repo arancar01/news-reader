@@ -13,7 +13,6 @@ const Login = () => {
     },
     onSubmit: (values) => {
       const user = JSON.parse(localStorage.getItem("user"));
-
       if (
         user &&
         user.email === values.email &&
@@ -25,6 +24,7 @@ const Login = () => {
       }
     },
   });
+
   return (
     <div className="min-h-screen flex">
       {/* Image */}
@@ -35,13 +35,15 @@ const Login = () => {
           className="h-full w-full object-cover"
         />
       </div>
-      {/* form  */}
-      <div className="w-full md:w-1/2 flex items-center justify-center bg-gray-100">
+
+      {/* form */}
+      <div className="w-full md:w-1/2 flex items-center justify-center">
         <form
           onSubmit={formik.handleSubmit}
-          className="bg-white p-6 rounded shadow-md w-full max-w-md"
+          className="bg-white p-6 rounded w-full max-w-md"
         >
           <h2 className="text-xl font-bold mb-4">Login</h2>
+
           <input
             name="email"
             type="email"
@@ -50,6 +52,7 @@ const Login = () => {
             onChange={formik.handleChange}
             className="border px-3 py-2 w-full mb-3"
           />
+
           <input
             name="password"
             type="password"
@@ -58,18 +61,22 @@ const Login = () => {
             onChange={formik.handleChange}
             className="border px-3 py-2 w-full mb-4"
           />
+
+          {/* Login Button */}
           <button
             type="submit"
-            className="w-full bg-blue-500 text-white py-2 rounded"
+            className="bg-blue-500 hover:bg-blue-600 text-white w-full py-2 rounded"
           >
             Login
           </button>
+
+          {/* Sign In Button */}
           <Link to="/signin">
             <button
               type="button"
-              className="w-full mt-3 bg-gray-500 text-white py-2 rounded"
+              className="bg-green-500 hover:bg-green-600 text-white mt-3 w-full py-2 rounded"
             >
-              Create Account
+              Sign In
             </button>
           </Link>
         </form>

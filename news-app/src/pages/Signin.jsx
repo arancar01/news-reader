@@ -12,14 +12,14 @@ const Signin = () => {
     },
     onSubmit: (values) => {
       localStorage.setItem("user", JSON.stringify(values));
-      navigate("/home");
+      navigate("/");
     },
   });
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex items-center justify-center min-h-screen">
       <form
         onSubmit={formik.handleSubmit}
-        className="bg-white max-w-md w-full p-6 shadow rounded"
+        className=" max-w-md w-full p-6 shadow rounded"
       >
         <h2 className="mb-4 font-bold text-xl">Create Account</h2>
         <input
