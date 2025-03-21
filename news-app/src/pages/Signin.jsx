@@ -1,9 +1,11 @@
 import React from "react";
 import { useFormik } from "formik";
 import { useNavigate, Link } from "react-router-dom";
+import signinImage from "../assets/signin.png";
 
 const Signin = () => {
   const navigate = useNavigate();
+
   const formik = useFormik({
     initialValues: {
       username: "",
@@ -15,55 +17,73 @@ const Signin = () => {
       navigate("/");
     },
   });
+
   return (
-    <div className="flex items-center justify-center min-h-screen">
-      <form
-        onSubmit={formik.handleSubmit}
-        className=" max-w-md w-full p-6 shadow rounded"
-      >
-        <h2 className="mb-4 font-bold text-xl">Create Account</h2>
-        <input
-          type="text"
-          name="username"
-          placeholder="Username"
-          required
-          value={formik.values.username}
-          onChange={formik.handleChange}
-          className="px-3 py-2 w-full border rounded mb-3"
+    <div className="flex min-h-screen">
+      {/* Image on the left */}
+      <div className="w-1/2 hidden md:block">
+        <img
+          src={signinImage}
+          alt="Sign In"
+          className="h-full w-full object-cover"
         />
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          required
-          value={formik.values.email}
-          onChange={formik.handleChange}
-          className="border py-2 px-3 rounded w-full mb-3"
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          required
-          value={formik.values.password}
-          onChange={formik.handleChange}
-          className="w-full mb-4 py-2 rounded px-3 border"
-        />
-        <button
-          type="submit"
-          className="bg-green-500 py-2 rounded w-full hover:bg-green-600 text-white"
+      </div>
+
+      {/* Signin Form */}
+      <div className="w-full md:w-1/2 flex justify-center items-center">
+        <form
+          onSubmit={formik.handleSubmit}
+          className="p-6 rounded max-w-md w-full"
         >
-          Sign In
-        </button>
-        <Link to="/login">
+          <h2 className="text-xl font-bold mb-4">Create Account</h2>
+
+          <input
+            name="username"
+            type="text"
+            placeholder="Username"
+            required
+            value={formik.values.username}
+            onChange={formik.handleChange}
+            className="px-3 py-2 w-full border rounded mb-3"
+          />
+
+          <input
+            name="email"
+            type="email"
+            placeholder="Email"
+            required
+            value={formik.values.email}
+            onChange={formik.handleChange}
+            className="py-2 px-3 w-full rounded mb-3 border"
+          />
+
+          <input
+            name="password"
+            type="password"
+            placeholder="Password"
+            required
+            value={formik.values.password}
+            onChange={formik.handleChange}
+            className="w-full px-3 py-2 mb-4 border rounded"
+          />
+
           <button
-            type="button"
-            className="mt-3 w-full py-2 bg-gray-500 hover:bg-gray-600 rounded text-white"
+            type="submit"
+            className="bg-blue-500 text-white w-full py-2 rounded hover:bg-blue-600"
           >
-            Back to Login
+            Sign In
           </button>
-        </Link>
-      </form>
+
+          <Link to="/login">
+            <button
+              type="button"
+              className="bg-gray-500 text-white mt-3 w-full py-2 rounded hover:bg-gray-600"
+            >
+              Back to Login
+            </button>
+          </Link>
+        </form>
+      </div>
     </div>
   );
 };

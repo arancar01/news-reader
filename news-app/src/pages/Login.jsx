@@ -18,7 +18,7 @@ const Login = () => {
         user.email === values.email &&
         user.password === values.password
       ) {
-        navigate("/home");
+        navigate("/");
       } else {
         alert("Email or password is incorrect!");
       }
@@ -74,7 +74,7 @@ const Login = () => {
           <Link to="/signin">
             <button
               type="button"
-              className="bg-green-500 hover:bg-green-600 text-white mt-3 w-full py-2 rounded"
+              className="bg-gray-500 hover:bg-gray-800 text-white mt-3 w-full py-2 rounded"
             >
               Sign In
             </button>
