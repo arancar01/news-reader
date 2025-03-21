@@ -1,9 +1,12 @@
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { CiFacebook } from "react-icons/ci";
 import { RxDiscordLogo } from "react-icons/rx";
 import { FaBars, FaTimes, FaWhatsapp } from "react-icons/fa";
 
 const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const navItems = [
     { path: "/", link: "Home" },
     { path: "about", link: "About" },
@@ -90,7 +93,20 @@ const Navbar = () => {
             <FaWhatsapp size={20} />
           </a>
         </div>
+
+        {/* Mobile Menu Button - sm only */}
+        <div className="md:hidden">
+          <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            {isMenuOpen ? (
+              <FaTimes className="w-6 h-6" />
+            ) : (
+              <FaBars className="w-6 h-6" />
+            )}
+          </button>
+        </div>
       </nav>
+
+      {/* Mobile Menu - appears only on small screens */}
     </header>
   );
 };
