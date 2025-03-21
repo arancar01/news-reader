@@ -75,7 +75,7 @@ const Navbar = () => {
         {/* Login Button - md+ only */}
         <div className="hidden md:flex">
           <NavLink to="/login">
-            <button className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition shadow-md">
+            <button className="bg-blue-400 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition shadow-md">
               Login
             </button>
           </NavLink>
