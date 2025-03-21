@@ -2,9 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
- {
-  /*#root {
+/*#root {
   @apply flex items-center justify-center min-h-screen bg-gray-100;
 }
 */
-}

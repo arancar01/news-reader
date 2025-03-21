@@ -11,6 +11,8 @@ const Navbar = () => {
     { path: "/", link: "Home" },
     { path: "about", link: "About" },
     { path: "register", link: "Register" },
+    ////{ path: "login", link: "Login" },
+    ////{ path: "signin", link: "Signin" },
   ];
 
   return (
@@ -83,13 +85,13 @@ const Navbar = () => {
 
         {/* Social Icons - md+ only */}
         <div className="hidden md:flex items-center gap-2">
-          <a href="/" className="hover:text-blue-400">
+          <a href="" className="hover:text-blue-400">
             <CiFacebook size={20} />
           </a>
-          <a href="/" className="hover:text-purple-400">
+          <a href="" className="hover:text-purple-400">
             <RxDiscordLogo size={20} />
           </a>
-          <a href="/" className="hover:text-green-400">
+          <a href="" className="hover:text-green-400">
             <FaWhatsapp size={20} />
           </a>
         </div>
@@ -121,6 +123,7 @@ const Navbar = () => {
           ))}
         </div>
       )}
+      <div></div>
     </header>
   );
 };
