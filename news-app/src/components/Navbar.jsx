@@ -22,9 +22,14 @@ const Navbar = () => {
   };
 
   const navItems = [
-    { path: "/", link: "Home" },
-    { path: "about", link: "About" },
-    { path: "register", link: "Register" },
+    //{ path: "/", link: "Home" },
+    { path: "/", link: "News" },
+    { path: "technology", link: "Technology" },
+    { path: "economy", link: "Economy" },
+    { path: "sports", link: "Sports" },
+    { path: "pc", link: "Pc" },
+    ///{ path: "about", link: "About" },
+    ///{ path: "register", link: "Register" },
   ];
 
   return (
@@ -74,7 +79,8 @@ const Navbar = () => {
                 </button>
               </NavLink>
               <NavLink to="/signin">
-                <button className="bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-600 shadow-md">
+                {/*here */}
+                <button className="hidden xl:flex bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-600 shadow-md">
                   Sign In
                 </button>
               </NavLink>
