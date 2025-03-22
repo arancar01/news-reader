@@ -15,6 +15,7 @@ const Navbar = () => {
   }, []);
 
   const handleLogout = () => {
+    /*here */
     localStorage.removeItem("user");
     setIsLoggedIn(false);
     navigate("/login");
@@ -39,7 +40,7 @@ const Navbar = () => {
           </a>
         </div>
 
-        {/* Navigation Links - Desktop */}
+        {/* Navigation Links */}
         <ul className="hidden sm:flex gap-4">
           {navItems.map(({ path, link }) => (
             <li key={path}>
@@ -52,7 +53,7 @@ const Navbar = () => {
           ))}
         </ul>
 
-        {/* Search Input - md+ only */}
+        {/* search Input  md */}
         <div className="hidden md:flex">
           <form className="flex bg-gray-100 border border-gray-400 rounded-lg overflow-hidden text-black">
             <input
@@ -63,7 +64,7 @@ const Navbar = () => {
           </form>
         </div>
 
-        {/* Auth Buttons - md+ only */}
+        {/* auth Buttons md only */}
         <div className="hidden md:flex gap-2">
           {!isLoggedIn ? (
             <>
@@ -80,6 +81,7 @@ const Navbar = () => {
             </>
           ) : (
             <button
+              /* here */
               onClick={handleLogout}
               className="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg shadow-md"
             >
@@ -88,7 +90,7 @@ const Navbar = () => {
           )}
         </div>
 
-        {/* Social Icons - md+ only */}
+        {/* Social Icons  md only */}
         <div className="hidden md:flex items-center gap-2">
           <a href="/" className="hover:text-blue-400">
             <CiFacebook size={20} />
@@ -101,7 +103,7 @@ const Navbar = () => {
           </a>
         </div>
 
-        {/* Mobile Menu Button - sm only */}
+        {/* Mobile Menu Button sm only */}
         <div className="md:hidden">
           <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? (
@@ -113,7 +115,7 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Mobile Menu - appears only on small screens */}
+      {/* Mobile Menu  appears only on small screens */}
       {isMenuOpen && (
         <div className="md:hidden flex flex-col items-center bg-gray-900 text-white absolute top-16 left-0 w-full py-4 shadow-lg z-50">
           {navItems.map(({ path, link }) => (
@@ -146,7 +148,7 @@ const Navbar = () => {
           ) : (
             <button
               onClick={() => {
-                handleLogout();
+                handleLogout(); /* Here */
                 setIsMenuOpen(false);
               }}
               className="mt-2 bg-red-500 px-6 py-2 rounded hover:bg-red-600 text-white"
