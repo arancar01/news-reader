@@ -15,6 +15,7 @@ const Signin = () => {
     onSubmit: (values) => {
       localStorage.setItem("user", JSON.stringify(values));
       navigate("/");
+      window.location.reload(); /*relaud page to show button log out -_-'*/
     },
   });
 
