@@ -1,18 +1,29 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import { CiFacebook } from "react-icons/ci";
 import { RxDiscordLogo } from "react-icons/rx";
 import { FaBars, FaTimes, FaWhatsapp } from "react-icons/fa";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    setIsLoggedIn(!!user);
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    setIsLoggedIn(false);
+    navigate("/login");
+  };
 
   const navItems = [
     { path: "/", link: "Home" },
     { path: "about", link: "About" },
     { path: "register", link: "Register" },
-    ////{ path: "login", link: "Login" },
-    ////{ path: "signin", link: "Signin" },
   ];
 
   return (
@@ -27,28 +38,6 @@ const Navbar = () => {
             </span>
           </a>
         </div>
-
-        {/* (Navbar Buttons) */}
-        {/*<div className="flex gap-4">
-          <NavLink to="/">
-            <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">
-              Home
-            </button>
-          </NavLink>
-
-          <NavLink to="/about">
-            <button className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition">
-              About
-            </button>
-          </NavLink>
-
-          <NavLink to="/register">
-            <button className="bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition">
-              Register
-            </button>
-          </NavLink>
-        </div>
-*/}
 
         {/* Navigation Links - Desktop */}
         <ul className="hidden sm:flex gap-4">
@@ -74,24 +63,40 @@ const Navbar = () => {
           </form>
         </div>
 
-        {/* Login Button - md+ only */}
-        <div className="hidden md:flex">
-          <NavLink to="/login">
-            <button className="bg-blue-400 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition shadow-md">
-              Login
+        {/* Auth Buttons - md+ only */}
+        <div className="hidden md:flex gap-2">
+          {!isLoggedIn ? (
+            <>
+              <NavLink to="/login">
+                <button className="bg-blue-400 text-white px-6 py-2 rounded-lg hover:bg-blue-600 shadow-md">
+                  Login
+                </button>
+              </NavLink>
+              <NavLink to="/signin">
+                <button className="bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-600 shadow-md">
+                  Sign In
+                </button>
+              </NavLink>
+            </>
+          ) : (
+            <button
+              onClick={handleLogout}
+              className="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg shadow-md"
+            >
+              Logout
             </button>
-          </NavLink>
+          )}
         </div>
 
         {/* Social Icons - md+ only */}
         <div className="hidden md:flex items-center gap-2">
-          <a href="" className="hover:text-blue-400">
+          <a href="/" className="hover:text-blue-400">
             <CiFacebook size={20} />
           </a>
-          <a href="" className="hover:text-purple-400">
+          <a href="/" className="hover:text-purple-400">
             <RxDiscordLogo size={20} />
           </a>
-          <a href="" className="hover:text-green-400">
+          <a href="/" className="hover:text-green-400">
             <FaWhatsapp size={20} />
           </a>
         </div>
@@ -121,9 +126,36 @@ const Navbar = () => {
               {link}
             </NavLink>
           ))}
+          {!isLoggedIn ? (
+            <>
+              <NavLink
+                to="/login"
+                className="py-2 text-lg hover:text-blue-400"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Login
+              </NavLink>
+              <NavLink
+                to="/signin"
+                className="py-2 text-lg hover:text-blue-400"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Sign In
+              </NavLink>
+            </>
+          ) : (
+            <button
+              onClick={() => {
+                handleLogout();
+                setIsMenuOpen(false);
+              }}
+              className="mt-2 bg-red-500 px-6 py-2 rounded hover:bg-red-600 text-white"
+            >
+              Logout
+            </button>
+          )}
         </div>
       )}
-      <div></div>
     </header>
   );
 };
