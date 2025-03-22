@@ -6,38 +6,37 @@ import { FaBars, FaTimes, FaWhatsapp } from "react-icons/fa";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem("user"));
   const navigate = useNavigate();
 
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("user"));
-    setIsLoggedIn(!!user);
+    const handleStorageChange = () => {
+      setIsLoggedIn(!!localStorage.getItem("user"));
+    };
+    window.addEventListener("storage", handleStorageChange);
+    return () => window.removeEventListener("storage", handleStorageChange);
   }, []);
 
   const handleLogout = () => {
-    /*here */
     localStorage.removeItem("user");
     setIsLoggedIn(false);
     navigate("/login");
   };
 
   const navItems = [
-    //{ path: "/", link: "Home" },
     { path: "/", link: "News" },
     { path: "technology", link: "Technology" },
     { path: "economy", link: "Economy" },
     { path: "sports", link: "Sports" },
-    { path: "pc", link: "Pc" },
-    ///{ path: "about", link: "About" },
-    ///{ path: "register", link: "Register" },
+    { path: "pc", link: "PC" },
   ];
 
   return (
-    <header className="bg-black text-white relative">
-      <nav className="flex items-center justify-between px-6 py-4 w-full gap-4">
+    <header className="relative bg-black text-white">
+      <nav className="flex items-center justify-between w-full px-6 py-4 gap-4">
         {/* Logo */}
         <div className="flex-shrink-0">
-          <a href="/" className="text-xl font-bold text-white flex">
+          <a href="/" className="flex text-xl font-bold text-white">
             Alx
             <span className="text-red-400">
               <span className="text-blue-500">N</span>EWS
@@ -45,12 +44,12 @@ const Navbar = () => {
           </a>
         </div>
 
-        {/* Navigation Links */}
+        {/* Links (path) */}
         <ul className="hidden sm:flex gap-4">
           {navItems.map(({ path, link }) => (
             <li key={path}>
               <NavLink to={path}>
-                <button className="bg-blue-500 text-white px-3 py-2 rounded-lg hover:bg-blue-600 transition">
+                <button className="px-3 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">
                   {link}
                 </button>
               </NavLink>
@@ -58,45 +57,43 @@ const Navbar = () => {
           ))}
         </ul>
 
-        {/* search Input  md */}
+        {/* search *_*/}
         <div className="hidden md:flex">
-          <form className="flex bg-gray-100 border border-gray-400 rounded-lg overflow-hidden text-black">
+          <form className="flex border border-gray-400 bg-gray-100 overflow-hidden text-black rounded-lg">
             <input
               type="text"
-              placeholder="search here"
+              placeholder="Search here"
               className="px-4 py-2 w-64 outline-none"
             />
           </form>
         </div>
 
-        {/* auth Buttons md only */}
+        {/* auth Buttons) */}
         <div className="hidden md:flex gap-2">
           {!isLoggedIn ? (
             <>
               <NavLink to="/login">
-                <button className="bg-blue-400 text-white px-6 py-2 rounded-lg hover:bg-blue-600 shadow-md">
+                <button className="px-6 py-2 bg-blue-400 text-white rounded-lg hover:bg-blue-600 shadow-md">
                   Login
                 </button>
               </NavLink>
               <NavLink to="/signin">
-                {/*here */}
-                <button className="hidden xl:flex bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-600 shadow-md">
+                <button className="px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 shadow-md hidden xl:flex">
                   Sign In
                 </button>
               </NavLink>
             </>
           ) : (
             <button
-              /* here */
               onClick={handleLogout}
-              className="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg shadow-md"
+              className="px-6 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 shadow-md"
             >
               Logout
             </button>
           )}
         </div>
 
-        {/* Social Icons  md only */}
+        {/* tocial icons ) */}
         <div className="hidden md:flex items-center gap-2">
           <a href="/" className="hover:text-blue-400">
             <CiFacebook size={20} />
@@ -109,7 +106,7 @@ const Navbar = () => {
           </a>
         </div>
 
-        {/* Mobile Menu Button sm only */}
+        {/* mobile menu toggle */}
         <div className="md:hidden">
           <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? (
@@ -121,9 +118,9 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Mobile Menu  appears only on small screens */}
+      {/* mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden flex flex-col items-center bg-gray-900 text-white absolute top-16 left-0 w-full py-4 shadow-lg z-50">
+        <div className="md:hidden z-50 absolute top-16 left-0 w-full bg-gray-900 text-white py-4 shadow-lg flex flex-col items-center">
           {navItems.map(({ path, link }) => (
             <NavLink
               key={path}
@@ -154,10 +151,10 @@ const Navbar = () => {
           ) : (
             <button
               onClick={() => {
-                handleLogout(); /* Here */
+                handleLogout();
                 setIsMenuOpen(false);
               }}
-              className="mt-2 bg-red-500 px-6 py-2 rounded hover:bg-red-600 text-white"
+              className="mt-2 px-6 py-2 bg-red-500 text-white rounded hover:bg-red-600"
             >
               Logout
             </button>

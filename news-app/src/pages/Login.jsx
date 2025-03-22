@@ -27,7 +27,6 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex">
-      {/* Image */}
       <div className="w-1/2 hidden md:block">
         <img
           src={loginImage}
@@ -36,7 +35,6 @@ const Login = () => {
         />
       </div>
 
-      {/* form */}
       <div className="w-full md:w-1/2 flex items-center justify-center">
         <form
           onSubmit={formik.handleSubmit}
@@ -62,7 +60,6 @@ const Login = () => {
             className="border px-3 py-2 w-full mb-4"
           />
 
-          {/* Login Button */}
           <button
             type="submit"
             className="bg-blue-500 hover:bg-blue-600 text-white w-full py-2 rounded"
@@ -70,7 +67,6 @@ const Login = () => {
             Login
           </button>
 
-          {/* Sign In Button */}
           <Link to="/signin">
             <button
               type="button"

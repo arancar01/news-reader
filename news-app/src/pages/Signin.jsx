@@ -2,7 +2,6 @@ import React from "react";
 import { useFormik } from "formik";
 import { useNavigate, Link } from "react-router-dom";
 import signinImage from "../assets/signin.png";
-
 const Signin = () => {
   const navigate = useNavigate();
 
@@ -14,76 +13,79 @@ const Signin = () => {
     },
     onSubmit: (values) => {
       localStorage.setItem("user", JSON.stringify(values));
-      navigate("/");
-      window.location.reload(); /*relaud page to show button log out -_-'*/
+      navigate("/login");
     },
   });
 
   return (
     <div className="flex min-h-screen">
-      {/* Image on the left */}
-      <div className="w-1/2 hidden md:block">
+      {/* Left Image */}
+      <div className="hidden md:flex w-1/2 items-center justify-center bg-white">
         <img
           src={signinImage}
-          alt="Sign In"
-          className="h-full w-full object-cover"
+          alt="Sign up visual"
+          className="max-w-full h-auto object-contain p-10"
         />
       </div>
 
-      {/* Signin Form */}
-      <div className="w-full md:w-1/2 flex justify-center items-center">
-        <form
-          onSubmit={formik.handleSubmit}
-          className="p-6 rounded max-w-md w-full"
-        >
-          <h2 className="text-xl font-bold mb-4">Create Account</h2>
+      <div className="flex w-full md:w-1/2 items-center justify-center px-4">
+        <div className="w-full max-w-md bg-white rounded-lg shadow-lg p-8">
+          <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
+            Create a new account
+          </h2>
 
-          <input
-            name="username"
-            type="text"
-            placeholder="Username"
-            required
-            value={formik.values.username}
-            onChange={formik.handleChange}
-            className="px-3 py-2 w-full border rounded mb-3"
-          />
+          <form onSubmit={formik.handleSubmit} className="space-y-4">
+            <div>
+              <label className="block text-gray-700 mb-1">Username</label>
+              <input
+                type="text"
+                name="username"
+                className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-300"
+                onChange={formik.handleChange}
+                value={formik.values.username}
+                placeholder="Your name"
+              />
+            </div>
 
-          <input
-            name="email"
-            type="email"
-            placeholder="Email"
-            required
-            value={formik.values.email}
-            onChange={formik.handleChange}
-            className="py-2 px-3 w-full rounded mb-3 border"
-          />
+            <div>
+              <label className="block text-gray-700 mb-1">Email</label>
+              <input
+                type="email"
+                name="email"
+                className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-300"
+                onChange={formik.handleChange}
+                value={formik.values.email}
+                placeholder="example@email.com"
+              />
+            </div>
 
-          <input
-            name="password"
-            type="password"
-            placeholder="Password"
-            required
-            value={formik.values.password}
-            onChange={formik.handleChange}
-            className="w-full px-3 py-2 mb-4 border rounded"
-          />
+            <div>
+              <label className="block text-gray-700 mb-1">Password</label>
+              <input
+                type="password"
+                name="password"
+                className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-300"
+                onChange={formik.handleChange}
+                value={formik.values.password}
+                placeholder="••••••••"
+              />
+            </div>
 
-          <button
-            type="submit"
-            className="bg-blue-500 text-white w-full py-2 rounded hover:bg-blue-600"
-          >
-            Sign In
-          </button>
-
-          <Link to="/login">
             <button
-              type="button"
-              className="bg-gray-500 text-white mt-3 w-full py-2 rounded hover:bg-gray-600"
+              type="submit"
+              className="w-full py-2 px-4 bg-green-600 text-white rounded hover:bg-green-700 transition"
             >
-              Back to Login
+              Sign Up
             </button>
-          </Link>
-        </form>
+          </form>
+
+          <p className="mt-4 text-center text-sm text-gray-600">
+            Already have an account?{" "}
+            <Link to="/login" className="text-blue-500 hover:underline">
+              Log in
+            </Link>
+          </p>
+        </div>
       </div>
     </div>
   );
