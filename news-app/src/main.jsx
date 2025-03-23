@@ -12,6 +12,7 @@ import Sports from "./pages/Sports.jsx";
 import Pc from "./pages/Pc.jsx";
 import Login from "./pages/Login.jsx";
 import Signin from "./pages/Signin.jsx";
+import Article from "./pages/Article.jsx";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +28,13 @@ const router = createBrowserRouter([
       { path: "pc", element: <Pc /> },
       { path: "login", element: <Login /> },
       { path: "signin", element: <Signin /> },
+      {
+        path: "article/:id",
+        element: <Article />,
+        errorElement: (
+          <p className="text-center text-red-500 mt-4">Article not found.</p>
+        ),
+      },
     ],
   },
 ]);

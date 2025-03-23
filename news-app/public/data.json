@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "title": "Breaking News: World Headlines Today",
+    "category": "News",
+    "description": "A roundup of the most important global events, from politics to technology.",
+    "image": "/images/img06.jpg",
+    "date": "2025-03-21"
+  },
+  {
+    "id": 2,
+    "title": "AI is reshaping the future of technology",
+    "category": "Technology",
+    "description": "Augmented reality and advanced AI systems are changing how we interact with digital spaces.",
+    "image": "/images/img05.jpg",
+    "date": "2025-03-20"
+  },
+  {
+    "id": 3,
+    "title": "Stock Market Sees Sharp Fluctuations",
+    "category": "Economy",
+    "description": "Global markets experienced heavy movement today with tech leading the volatility.",
+    "image": "/images/img04.jpg",
+    "date": "2025-03-19"
+  },
+  {
+    "id": 4,
+    "title": "Local Football Team Celebrates Big Win",
+    "category": "Sports",
+    "description": "Excitement on the field as the local team clinches victory in a dramatic penalty shootout.",
+    "image": "/images/img03.jpg",
+    "date": "2025-03-18"
+  },
+  {
+    "id": 5,
+    "title": "Ford Mustang 5.0 – Muscle Meets Elegance",
+    "category": "PC",
+    "description": "Performance lovers will adore this stunning car with power and precision.",
+    "image": "/images/img02.jpg",
+    "date": "2025-03-17"
+  },
+  {
+    "id": 6,
+    "title": "Gaming Setup of the Future: RGB and Power",
+    "category": "PC",
+    "description": "Explore the latest in custom-built PCs and immersive gaming experiences.",
+    "image": "/images/img.jpg",
+    "date": "2025-03-16"
+  }
+]

@@ -1,96 +1,85 @@
 # News Reader App
 
-News Reader App is an interactive news website built with **React + Vite**. It allows users to browse different news categories, search for articles, and manage user authentication.
+**News Reader** is a modern and responsive news website built with **React + Vite**. It allows users to browse categorized news, view full articles, and log in locally using `localStorage`.
 
 ## Features
 
-- Built with **React + Vite 6.2.0** for a fast and optimized development experience
-- Category pages for different news sections (News, Technology, Economy, PC, Sports)
-- Search functionality using the search bar
-- User authentication with localStorage
-- Responsive design using Tailwind CSS
-- Navigation management with React Router v6.30.0
-- Logout functionality with automatic navbar update
-
----
+- Browse news by category (News, Economy, Sports, Technology, PC)
+- View detailed news articles via dynamic routes
+- Local login system using `localStorage`
+- Form handling using Formik
+- Fully responsive design with Tailwind CSS
+- Navigation using React Router
+- Reusable components like `Newscard` and `Article`
+- Dynamic routing using URL parameters
+- Project structure organized for scalability
+- React Query is installed and ready to integrate for data fetching (optional)
 
 ## Technologies Used
 
-- **React v18.2.0** - For building the user interface
-- **Vite v6.2.0** - For fast development and optimized builds
-- **Tailwind CSS v3.4.17** - For styling and responsive design
-- **React Router DOM v6.30.0** - For navigation management
-- **Formik v2.4.2** - For handling forms
-- **React Icons v5.5.0** - For UI icons
-- **localStorage** - To store user authentication data
-
----
+| Technology       | Version                  |
+| ---------------- | ------------------------ |
+| React            | v18.2.0                  |
+| Vite             | v6.2.0                   |
+| Tailwind CSS     | v3.4.17                  |
+| React Router DOM | v6.30.0                  |
+| Formik           | v2.4.2                   |
+| React Icons      | v5.5.0                   |
+| React Query      | v3.x                     |
+| localStorage     | for user session storage |
 
 ## Project Structure
 
-## news-reader/
-
-│── src/  
-│ ├── assets/  
-│ ├── components/  
-│ │ ├── Navbar.jsx  
-│ ├── pages/  
-│ │ ├── News.jsx
-│ │ ├── Technology.jsx
-│ │ ├── Economy.jsx
-│ │ ├── Pc.jsx
-│ │ ├── Sports.jsx
-│ │ ├── Login.jsx  
-│ │ ├── Signin.jsx  
-│ ├── App.jsx  
-│ ├── main.jsx  
-│── public/  
-│── README.md  
-│── package.json
-
-## User Authentication
-
-User login details are stored in localStorage
-
-Navbar updates automatically when logging in or out
-
-When logged in, additional options appear in the mobile menu
+```
+news-reader/
+├── public/
+│   └── images/               # News images used in articles
+├── src/
+│   ├── components/
+│   │   ├── Navbar.jsx
+│   │   └── Newscard.jsx
+│   ├── pages/
+│   │   ├── News.jsx
+│   │   ├── Technology.jsx
+│   │   ├── Economy.jsx
+│   │   ├── Sports.jsx
+│   │   ├── Pc.jsx
+│   │   ├── Login.jsx
+│   │   ├── Signin.jsx
+│   │   └── Article.jsx
+│   ├── data/
+│   │   └── data.json         # Static news articles
+│   ├── App.jsx
+│   └── main.jsx
+├── index.css
+├── index.html
+├── README.md
+└── package.json
+```
 
 ## Completed Tasks
 
-Updated dependencies: Vite 6.2.0, React 18.2.0, React Router 6.30.0, Formik 2.4.2
+- Created individual pages for each news category
+- Implemented local login and signup functionality with `localStorage`
+- Designed all pages using Tailwind CSS with responsive layout
+- Set up form handling using Formik
+- Created reusable components (`Newscard`, `Navbar`, `Article`)
+- Enabled navigation from article cards to full article pages
+- Implemented routing with React Router
+- Prepared structure for API integration with React Query
 
-Created category pages (News, Technology, Economy, PC, Sports)
-
-Developed a navigation bar with a logout button
-
-Used Formik for form handling
-
-Stored user authentication data in localStorage
-
-Navbar updates instantly after login/logout
-
-Page refreshes automatically after logout using window.location.reload()
-
-Improved mobile menu user experience
-
-## 📂 Repository
-
-The source code for this project is available on GitHub:  
-🔗 **[News Reader GitHub Repository](https://github.com/arancar01/news-reader.git)**
-
-### Clone this repository
-
-To get a copy of this project on your local machine, run:
+## Getting Started
 
 ```bash
-git clone https://github.com/arancar01/news-reader.git
+# Install dependencies
+npm install
 
-
-👤 Author
-Errahmouni Hamza - Creator & Developer
-
-GitHub: @arancar01
-
-Email: maradox6ken@gmail.com
+# Start the development server
+npm run dev
 ```
+
+## Author
+
+- **Name:** Errahmouni Hamza
+- **GitHub:** [@arancar01](https://github.com/arancar01)
+- **Email:** maradox6ken@gmail.com
