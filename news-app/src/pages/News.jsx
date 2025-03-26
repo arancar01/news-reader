@@ -14,7 +14,9 @@ const News = () => {
   const { data, isLoading, error } = useQuery("newsData", fetchNews);
 
   if (isLoading) {
-    return <div className="p-4 text-center text-gray-600">Loading news...</div>;
+    return (
+      <div className="p-4 text-center text-gray-600">Loading news....</div>
+    );
   }
 
   if (error) {
