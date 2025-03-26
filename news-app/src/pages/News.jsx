@@ -1,49 +1,31 @@
 import React from "react";
-import { useQuery } from "react-query";
 import Newscard from "../components/Newscard";
-
-const fetchNews = async () => {
-  const res = await fetch("/data.json");
-  if (!res.ok) {
-    throw new Error("Failed to load data");
-  }
-  return res.json();
-};
+import LatestNews from "../components/LatestNews";
 
 const News = () => {
-  const { data, isLoading, error } = useQuery("newsData", fetchNews);
-
-  if (isLoading) {
-    return (
-      <div className="p-4 text-center text-gray-600">Loading news....</div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="p-4 text-center text-red-600">Error loading news</div>
-    );
-  }
-
-  const newsArticles = data.filter((article) => article.category === "News");
-
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-6 text-center text-blue-700">
-        General News
-      </h1>
+    <div className="p-4 pt-6">
+      <h1 className="text-2xl font-bold mb-6 text-blue-700">News</h1>
 
-      {newsArticles.length === 0 ? (
-        <p className="text-gray-500 text-center">
-          No articles available in this section.
-        </p>
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {newsArticles.map((item) => (
-            <Newscard key={item.id} article={item} />
-          ))}
+      <div className="flex flex-col md:flex-row gap-6">
+        <div className="md:w-2/3">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+            {/* Articles will be displayed here */}
+          </div>
+
+          <div className="flex justify-center gap-4 mt-8">
+            <button className="w-10 h-10 rounded-full text-white font-bold bg-gray-300">
+              ‹
+            </button>
+            <span className="text-gray-700 font-medium text-sm">Page 1</span>
+            <button className="w-10 h-10 rounded-full text-white font-bold bg-gray-300">
+              ›
+            </button>
+          </div>
         </div>
-      )}
+
+        <LatestNews articles={[]} />
+      </div>
     </div>
   );
 };
