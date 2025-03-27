@@ -2,8 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const LatestNews = ({ articles }) => {
-  const latest = articles.slice(0, 5); // عرض أول 5 مقالات
-
+  const latest = articles.slice(0, 5);
   return (
     <aside className="w-1/3 pl-5">
       <h2 className="text-xl font-semibold text-blue-700 mb-4">Latest News</h2>

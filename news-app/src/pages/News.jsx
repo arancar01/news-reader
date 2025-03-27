@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 import Newscard from "../components/Newscard";
 import LatestNews from "../components/LatestNews";
 import axios from "axios";
+import Carousel from "../components/Carousel";
 
 const News = () => {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const articlesPerPage = 6;
+  const articlesPerPage = 10;
 
   useEffect(() => {
     const fetchNews = async () => {
@@ -25,6 +26,7 @@ const News = () => {
           }
         );
         setArticles(res.data.articles);
+        localStorage.setItem("articles", JSON.stringify(res.data.articles));
       } catch {
         setError("Failed to load news.");
       } finally {
@@ -51,14 +53,23 @@ const News = () => {
 
   return (
     <div className="p-4 pt-6">
-      <h1 className="text-2xl font-bold mb-6 text-blue-700"> News</h1>
+      <h1 className="text-2xl font-bold mb-6 text-blue-700">News</h1>
+
+      {articles.length > 0 && (
+        <div className="mb-8">
+          <Carousel articles={articles} />
+        </div>
+      )}
 
       <div className="flex flex-col md:flex-row gap-6">
         <div className="md:w-2/3">
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-            {currentArticles.map((item, index) => (
-              <Newscard key={index} article={item} index={index} />
-            ))}
+            {currentArticles.map((item) => {
+              const realIndex = articles.indexOf(item); // realIndex put real index
+              return (
+                <Newscard key={realIndex} article={item} index={realIndex} />
+              );
+            })}
           </div>
 
           <div className="flex justify-center gap-4 mt-8">
