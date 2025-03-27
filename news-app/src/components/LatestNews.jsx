@@ -23,6 +23,13 @@ const LatestNews = ({ articles }) => {
           </Link>
         ))}
       </div>
+
+      <div className="mt-6">
+        <video controls width="100%" className="rounded shadow">
+          <source src="/videos/news-intro.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
     </aside>
   );
 };
