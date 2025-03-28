@@ -1,85 +1,72 @@
-# News Reader App
+# ALX News App
 
-**News Reader** is a modern and responsive news website built with **React + Vite**. It allows users to browse categorized news, view full articles, and log in locally using `localStorage`.
+A modern, responsive news application built with React and Tailwind CSS. It fetches live news articles from NewsAPI and displays them by category with a clean, user-friendly interface.
 
 ## Features
 
-- Browse news by category (News, Economy, Sports, Technology, PC)
-- View detailed news articles via dynamic routes
-- Local login system using `localStorage`
-- Form handling using Formik
-- Fully responsive design with Tailwind CSS
-- Navigation using React Router
-- Reusable components like `Newscard` and `Article`
-- Dynamic routing using URL parameters
-- Project structure organized for scalability
-- React Query is installed and ready to integrate for data fetching (optional)
+- Latest news by category: Technology, Economy, Sports, PC
+- Featured news carousel (Swiper)
+- Article detail page with full content
+- Sidebar with recent news
+- Search functionality
+- Login and Sign up pages (with localStorage)
+- Embedded video in sidebar
+- Browse More button for better navigation
+- Responsive design for mobile and desktop
 
-## Technologies Used
+## 🧪 Technologies Used
 
-| Technology       | Version                  |
-| ---------------- | ------------------------ |
-| React            | v18.2.0                  |
-| Vite             | v6.2.0                   |
-| Tailwind CSS     | v3.4.17                  |
-| React Router DOM | v6.30.0                  |
-| Formik           | v2.4.2                   |
-| React Icons      | v5.5.0                   |
-| React Query      | v3.x                     |
-| localStorage     | for user session storage |
+- React
+- Tailwind CSS
+- Axios
+- React Router
+- Swiper.js
+- Formik
+- Vite
+
+## Responsive Design
+
+The app layout is fully responsive across small (`sm`), medium (`lg`), and large (`2xl`) screens:
+
+![Responsive Preview](public/screenshots/responsive-preview.png)
 
 ## Project Structure
 
-```
 news-reader/
-├── public/
-│   └── images/               # News images used in articles
-├── src/
-│   ├── components/
-│   │   ├── Navbar.jsx
-│   │   └── Newscard.jsx
-│   ├── pages/
-│   │   ├── News.jsx
-│   │   ├── Technology.jsx
-│   │   ├── Economy.jsx
-│   │   ├── Sports.jsx
-│   │   ├── Pc.jsx
-│   │   ├── Login.jsx
-│   │   ├── Signin.jsx
-│   │   └── Article.jsx
-│   ├── data/
-│   │   └── data.json         # Static news articles
-│   ├── App.jsx
-│   └── main.jsx
-├── index.css
-├── index.html
-├── README.md
-└── package.json
-```
+├── public/ ---------------------------------# Static assets (images, videos, icons)
+│ └── images/ -------------------------------# Images used for articles or as fallback
 
-## Completed Tasks
+├── src/ ------------------------------------# Main application source code
+│ ├── assets/------------------------------- # UI images (e.g. login/signup illustrations, logos)
+│ ├── components/--------------------------- # Reusable UI components (Navbar, Footer, etc.)
+│ ├── pages/ --------------------------------# Main route pages (News, Login, Article, etc.)
+│ ├── services/----------------------------- # API logic (e.g. Axios requests)
+│ ├── data/----------------------------------# Temporary/demo data (optional)
+│ ├── App.jsx -------------------------------# Main layout (includes <Navbar />, <Outlet />)
+│ ├── main.jsx-------------------------------# App entry point (Router, Providers, etc.)
+│ └── index.css -----------------------------# Tailwind base styles
 
-- Created individual pages for each news category
-- Implemented local login and signup functionality with `localStorage`
-- Designed all pages using Tailwind CSS with responsive layout
-- Set up form handling using Formik
-- Created reusable components (`Newscard`, `Navbar`, `Article`)
-- Enabled navigation from article cards to full article pages
-- Implemented routing with React Router
-- Prepared structure for API integration with React Query
+├── .env ------------------------------------# Environment variables (e.g. API keys)
+├── package.json ----------------------------# Project config and dependencies
+├── vite.config.js --------------------------# Vite-specific settings
+├── tailwind.config.js ----------------------# Tailwind customization (colors, fonts, etc.)
+└── README.md -------------------------------# Project documentation
 
-## Getting Started
+## ⚙️ Getting Started
+
+Create a `.env` file in the root directory and add your NewsAPI key:
+
+VITE_NEWS_API_KEY=your_api_key_here
 
 ```bash
-# Install dependencies
+git clone https://github.com/arancar01/news-reader.git
+cd news-reader
 npm install
-
-# Start the development server
 npm run dev
-```
 
 ## Author
 
 - **Name:** Errahmouni Hamza
 - **GitHub:** [@arancar01](https://github.com/arancar01)
 - **Email:** maradox6ken@gmail.com
+```

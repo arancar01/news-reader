@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { CiFacebook } from "react-icons/ci";
-import { RxDiscordLogo } from "react-icons/rx";
-import { FaBars, FaTimes, FaWhatsapp } from "react-icons/fa";
+import { FaBars, FaTimes } from "react-icons/fa";
+import logo from "../assets/logo.svg";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -32,93 +31,75 @@ const Navbar = () => {
   ];
 
   return (
-    <header className="relative bg-black text-white">
-      <nav className="flex items-center justify-between w-full px-6 py-4 gap-4">
-        {/* Logo */}
-        <div className="flex-shrink-0">
-          <a href="/" className="flex text-xl font-bold text-white">
-            Alx
-            <span className="text-red-400">
-              <span className="text-blue-500">N</span>EWS
-            </span>
+    <header className="bg-gray-200 px-1 py-2 shadow-md shadow-cyan-500/50">
+      <nav className="flex justify-center items-center w-full">
+        <div className="flex items-center gap-6 flex-wrap justify-center ">
+          {/* الشعار */}
+          <a href="/" className="flex items-center">
+            <img src={logo} alt="AlxNews Logo" className="h-10 w-auto" />
           </a>
-        </div>
 
-        {/* Links (path) */}
-        <ul className="hidden sm:flex gap-4">
-          {navItems.map(({ path, link }) => (
-            <li key={path}>
-              <NavLink to={path}>
-                <button className="px-3 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">
-                  {link}
-                </button>
-              </NavLink>
-            </li>
-          ))}
-        </ul>
+          {/* روابط التنقل */}
+          <ul className="hidden sm:flex gap-3">
+            {navItems.map(({ path, link }) => (
+              <li key={path}>
+                <NavLink to={path}>
+                  <button className="px-3 py-2 bg-sky-500 text-white rounded-md hover:bg-blue-600 transition">
+                    {link}
+                  </button>
+                </NavLink>
+              </li>
+            ))}
+          </ul>
 
-        {/* search *_*/}
-        <div className="hidden md:flex">
-          <form className="flex border border-gray-400 bg-gray-100 overflow-hidden text-black rounded-lg">
+          {/* البحث */}
+          <form className="hidden md:flex border border-gray-400 bg-gray-100 overflow-hidden text-black rounded-lg">
             <input
               type="text"
               placeholder="Search here"
               className="px-4 py-2 w-64 outline-none"
             />
           </form>
-        </div>
 
-        {/* auth Buttons) */}
-        <div className="hidden md:flex gap-2">
-          {!isLoggedIn ? (
-            <>
-              <NavLink to="/login">
-                <button className="px-6 py-2 bg-blue-400 text-white rounded-lg hover:bg-blue-600 shadow-md">
-                  Login
-                </button>
-              </NavLink>
-              <NavLink to="/signin">
-                <button className="px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 shadow-md hidden xl:flex">
-                  Sign In
-                </button>
-              </NavLink>
-            </>
-          ) : (
-            <button
-              onClick={handleLogout}
-              className="px-6 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 shadow-md"
-            >
-              Logout
-            </button>
-          )}
-        </div>
-
-        {/* tocial icons ) */}
-        <div className="hidden md:flex items-center gap-2">
-          <a href="/" className="hover:text-blue-400">
-            <CiFacebook size={20} />
-          </a>
-          <a href="/" className="hover:text-purple-400">
-            <RxDiscordLogo size={20} />
-          </a>
-          <a href="/" className="hover:text-green-400">
-            <FaWhatsapp size={20} />
-          </a>
-        </div>
-
-        {/* mobile menu toggle */}
-        <div className="md:hidden">
-          <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            {isMenuOpen ? (
-              <FaTimes className="w-6 h-6" />
+          {/* أزرار تسجيل الدخول */}
+          <div className="hidden md:flex gap-2">
+            {!isLoggedIn ? (
+              <>
+                <NavLink to="/login">
+                  <button className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-sky-900 shadow-md">
+                    Login
+                  </button>
+                </NavLink>
+                <NavLink to="/signin">
+                  <button className="px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 shadow-md hidden xl:flex">
+                    Sign In
+                  </button>
+                </NavLink>
+              </>
             ) : (
-              <FaBars className="w-6 h-6" />
+              <button
+                onClick={handleLogout}
+                className="px-6 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 shadow-md"
+              >
+                Logout
+              </button>
             )}
-          </button>
+          </div>
+
+          {/* زر الموبايل */}
+          <div className="md:hidden">
+            <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
+              {isMenuOpen ? (
+                <FaTimes className="w-6 h-6" />
+              ) : (
+                <FaBars className="w-6 h-6" />
+              )}
+            </button>
+          </div>
         </div>
       </nav>
 
-      {/* mobile Menu */}
+      {/* القائمة الجانبية للموبايل */}
       {isMenuOpen && (
         <div className="md:hidden z-50 absolute top-16 left-0 w-full bg-gray-900 text-white py-4 shadow-lg flex flex-col items-center">
           {navItems.map(({ path, link }) => (
