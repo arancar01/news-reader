@@ -8,7 +8,11 @@ export default function App() {
     <>
       <br />
       <Navbar />
-      <Outlet />
+
+      <div className="w-full max-w-[1600px] mx-auto px-6 py-0">
+        <Outlet />
+      </div>
+
       <Footer />
     </>
   );

@@ -17,7 +17,7 @@ const Carousel = ({ articles }) => {
         slidesPerView={1}
         navigation
         pagination={{ clickable: true }}
-        autoplay={{ delay: 5000 }}
+        autoplay={{ delay: 6000 }}
         loop
         className="rounded-lg"
       >
