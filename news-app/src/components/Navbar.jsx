@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
-import logo from "../assets/logo.svg";
+import logo from "../assets/logo.png";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // toggle for mobile menu
@@ -32,7 +32,7 @@ const Navbar = () => {
   ];
 
   return (
-    <header className="bg-gray-200 px-1 py-2 shadow-md shadow-cyan-500/50">
+    <header className="bg-gray-200 px-1 py-2 shadow-md shadow-cyan-500/50 mt-5">
       <nav className="flex justify-center items-center w-full">
         <div className="flex items-center gap-6 flex-wrap justify-center">
           {/* logo on the left */}

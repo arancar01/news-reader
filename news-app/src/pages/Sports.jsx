@@ -9,7 +9,7 @@ const Sports = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const articlesPerPage = 6;
+  const articlesPerPage = 9;
 
   useEffect(() => {
     const fetchNews = async () => {
