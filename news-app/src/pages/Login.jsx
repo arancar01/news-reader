@@ -12,6 +12,11 @@ const Login = () => {
       password: "",
     },
     onSubmit: (values) => {
+      if (!values.email || !values.password) {
+        alert("Please enter both email and password.");
+        return;
+      }
+
       const user = JSON.parse(localStorage.getItem("user"));
       if (
         user &&
@@ -42,25 +47,35 @@ const Login = () => {
         >
           <h2 className="text-xl font-bold mb-4">Login</h2>
           <div>
-          <label className="block text-gray-700 mb-1">Email</label>
-          <input
-            name="email"
-            type="email"
-            placeholder="Email"
-            value={formik.values.email}
-            onChange={formik.handleChange}
-            className="border px-3 py-2 w-full mb-3"
-          />
-<label className="block text-gray-700 mb-1">Password</label>
-          <input
-            name="password"
-            type="password"
-            placeholder="Password"
-            value={formik.values.password}
-            onChange={formik.handleChange}
-            className="border px-3 py-2 w-full mb-4"
-          />
-</div>
+            <label className="block text-gray-700 mb-1">Email</label>
+            <input
+              name="email"
+              type="email"
+              placeholder="Email"
+              value={formik.values.email}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              className="border px-3 py-2 w-full mb-1"
+            />
+            {formik.touched.email && !formik.values.email && (
+              <div className="text-red-500 text-sm mb-2">Email is required</div>
+            )}
+
+            <label className="block text-gray-700 mb-1">Password</label>
+            <input
+              name="password"
+              type="password"
+              placeholder="Password"
+              value={formik.values.password}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              className="border px-3 py-2 w-full mb-1"
+            />
+            {formik.touched.password && !formik.values.password && (
+              <div className="text-red-500 text-sm mb-2">Password is required</div>
+            )}
+          </div>
+
           <button
             type="submit"
             className="bg-sky-500 hover:bg-sky-600 text-white w-full py-2 rounded"
