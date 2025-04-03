@@ -19,15 +19,9 @@ const Signin = () => {
   });
 
   return (
-<<<<<<< HEAD
-    <div className="flex min-h-screen">
-      {/* Left Image */}
-      <div className="hidden md:flex w-1/2 items-center justify-center bg-white">
-=======
     <div className="flex my-20">
       
       <div className="hidden md:flex w-2/3 items-center justify-center bg-white mb-20">
->>>>>>> 019863e (update: fix search bar, image style, colors and layout tweaks)
         <img
           src={signinImage}
           alt="Sign up visual"
@@ -36,64 +30,59 @@ const Signin = () => {
       </div>
 
       
-      <div className="flex w-full md:w-1/2 items-center justify-center px-0 mb-20 " >
-        <div className="w-full max-w-sm bg-white rounded-lg mb-20 ">
-          <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
-            Create a new account
-          </h2>
+      <div className="flex w-full md:w-1/2 items-center justify-center px-0 mb-20">
+        <form
+          onSubmit={formik.handleSubmit}
+          className="bg-white p-3 py-8 rounded w-full max-w-md space-y-6"
+        >
+          <h2 className="text-xl font-bold mb-4 text-center">Create a new account</h2>
 
-          <form onSubmit={formik.handleSubmit} className="space-y-4">
-            <div>
-              <label className="block text-gray-700 mb-1">Username</label>
-              <input
-                type="text"
-                name="username"
-                className="w-full px-4 py-2 rounded bg-gray-100 focus:outline-none focus:ring focus:ring-sky-300"
-                onChange={formik.handleChange}
-                value={formik.values.username}
-                placeholder="Your name"
-              />
-            </div>
+          <div>
+            <label className="block text-gray-700 mb-1">Username</label>
+            <input
+              type="text"
+              name="username"
+              placeholder="Your name"
+              className="border px-3 py-2 w-full mb-3"
+              onChange={formik.handleChange}
+              value={formik.values.username}
+            />
+            <label className="block text-gray-700 mb-1">Email</label>
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              className="border px-3 py-2 w-full mb-3"
+              onChange={formik.handleChange}
+              value={formik.values.email}
+            />
+            <label className="block text-gray-700 mb-1">Password</label>
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              className="border px-3 py-2 w-full mb-4"
+              onChange={formik.handleChange}
+              value={formik.values.password}
+            />
+          </div>
 
-            <div>
-              <label className="block text-gray-700 mb-1">Email</label>
-              <input
-                type="email"
-                name="email"
-                className="w-full px-4 py-2 rounded bg-gray-100 focus:outline-none focus:ring focus:ring-sky-300"
-                onChange={formik.handleChange}
-                value={formik.values.email}
-                placeholder="Email"
-              />
-            </div>
+          <button
+            type="submit"
+            className="bg-sky-500 hover:bg-sky-600 text-white w-full py-2 rounded"
+          >
+            Sign Up
+          </button>
 
-            <div>
-              <label className="block text-gray-700 mb-1">Password</label>
-              <input
-                type="password"
-                name="password"
-                className="w-full px-4 py-2 rounded bg-gray-100 focus:outline-none focus:ring focus:ring-sky-300"
-                onChange={formik.handleChange}
-                value={formik.values.password}
-                placeholder="Password"
-              />
-            </div>
-
+          <Link to="/login">
             <button
-              type="submit"
-              className="w-full py-2 px-4 bg-sky-600 text-white rounded hover:bg-sky-700 transition"
+              type="button"
+              className="bg-gray-500 hover:bg-gray-600 text-white mt-3 w-full py-2 rounded"
             >
-              Sign Up
+              Log In
             </button>
-          </form>
-
-          <p className="mt-4 text-center text-sm text-gray-600">
-            Already have an account?{" "}
-            <Link to="/login" className="text-sky-500 hover:underline">
-              Log in
-            </Link>
-          </p>
-        </div>
+          </Link>
+        </form>
       </div>
     </div>
   );

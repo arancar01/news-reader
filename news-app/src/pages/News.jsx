@@ -72,7 +72,6 @@ const News = () => {
       )}
 
       <div className="flex flex-col md:flex-row gap-6">
-        {/* left side - news cards */}
         <div className="md:w-2/3">
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
             {currentArticles.map((item, index) => (
@@ -84,7 +83,6 @@ const News = () => {
             ))}
           </div>
 
-          {/* pagination at bottom */}
           <div className="mt-10 mb-16">
             <Pagination
               currentPage={currentPage}

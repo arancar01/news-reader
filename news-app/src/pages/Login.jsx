@@ -36,12 +36,13 @@ const Login = () => {
       </div>
 
       <div className="flex w-full md:w-1/2 items-center justify-center px-0 mb-20">
-        <form
+        <form 
           onSubmit={formik.handleSubmit}
-          className="bg-white p-6 rounded w-full max-w-md"
+          className="bg-white p-3 py-8 rounded w-full max-w-md space-y-6"
         >
           <h2 className="text-xl font-bold mb-4">Login</h2>
-
+          <div>
+          <label className="block text-gray-700 mb-1">Email</label>
           <input
             name="email"
             type="email"
@@ -50,7 +51,7 @@ const Login = () => {
             onChange={formik.handleChange}
             className="border px-3 py-2 w-full mb-3"
           />
-
+<label className="block text-gray-700 mb-1">Password</label>
           <input
             name="password"
             type="password"
@@ -59,7 +60,7 @@ const Login = () => {
             onChange={formik.handleChange}
             className="border px-3 py-2 w-full mb-4"
           />
-
+</div>
           <button
             type="submit"
             className="bg-sky-500 hover:bg-sky-600 text-white w-full py-2 rounded"

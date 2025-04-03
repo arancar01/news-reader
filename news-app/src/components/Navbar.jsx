@@ -12,7 +12,6 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    /// if user logs in/out in another tab, update state here too
     const handleStorageChange = () => {
       setIsLoggedIn(!!localStorage.getItem("user"));
     };
@@ -44,16 +43,11 @@ const Navbar = () => {
     <header className="bg-gray-200 px-1 py-2 shadow-md shadow-cyan-500/50 mt-5">
       <nav className="flex justify-center items-center w-full">
         <div className="flex items-center gap-6 flex-wrap justify-center">
-<<<<<<< HEAD
-          {/* logo on the left */}
-=======
           
->>>>>>> 019863e (update: fix search bar, image style, colors and layout tweaks)
           <a href="/" className="flex items-center">
             <img src={logo} alt="AlxNews Logo" className="h-10 w-auto" />
           </a>
 
-          {/* main nav links - visible on larger screens only */}
           <ul className="hidden sm:flex gap-3">
             {navItems.map(({ path, link }) => (
               <li key={path}>
@@ -65,17 +59,11 @@ const Navbar = () => {
               </li>
             ))}
           </ul>
-<<<<<<< HEAD
-
-          {/* /search bar - only shows on medium+ screens */}
-          <form className="hidden md:flex border border-gray-400 bg-gray-100 overflow-hidden text-black rounded-lg">
-=======
           
           <form
             onSubmit={handleSearch}
             className="hidden md:flex border border-gray-400 bg-gray-100 overflow-hidden text-black rounded-lg"
           >
->>>>>>> 019863e (update: fix search bar, image style, colors and layout tweaks)
             <input
               type="text"
               placeholder="search here"
@@ -85,7 +73,6 @@ const Navbar = () => {
             />
           </form>
 
-          {/* auth buttons - login or logout based on user state */}
           <div className="hidden md:flex gap-2">
             {!isLoggedIn ? (
               <>
@@ -110,7 +97,6 @@ const Navbar = () => {
             )}
           </div>
 
-          {/* mobile menu toggle button */}
           <div className="md:hidden">
             <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
               {isMenuOpen ? (
@@ -122,57 +108,7 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-<<<<<<< HEAD
-
-      {/* mobile menu - shows only if toggled open */}
-      {isMenuOpen && (
-        <div className="md:hidden z-50 absolute top-16 left-0 w-full bg-gray-900 text-white py-4 shadow-lg flex flex-col items-center">
-          {navItems.map(({ path, link }) => (
-            <NavLink
-              key={path}
-              to={path}
-              className="py-2 text-lg hover:text-blue-400"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {link}
-            </NavLink>
-          ))}
-
-          {/* auth buttons inside mobile menu **/}
-          {!isLoggedIn ? (
-            <>
-              <NavLink
-                to="/login"
-                className="py-2 text-lg hover:text-blue-400"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                login
-              </NavLink>
-              <NavLink
-                to="/signin"
-                className="py-2 text-lg hover:text-blue-400"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                sign in
-              </NavLink>
-            </>
-          ) : (
-            <button
-              onClick={() => {
-                handleLogout();
-                setIsMenuOpen(false);
-              }}
-              className="mt-2 px-6 py-2 bg-red-500 text-white rounded hover:bg-red-600"
-            >
-              logout
-            </button>
-          )}
-        </div>
-      )}
-    </header>
-=======
         </header>
->>>>>>> 019863e (update: fix search bar, image style, colors and layout tweaks)
   );
 };
 
