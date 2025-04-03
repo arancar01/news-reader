@@ -1,7 +1,7 @@
 import React from "react";
 import { useFormik } from "formik";
 import { useNavigate, Link } from "react-router-dom";
-import loginImage from "../assets/login.png";
+import loginImage from "../assets/login2.png";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -26,16 +26,16 @@ const Login = () => {
   });
 
   return (
-    <div className="min-h-screen flex">
-      <div className="w-1/2 hidden md:block">
+    <div className="flex my-20">
+      <div className="hidden md:flex w-2/3 items-center justify-center bg-white mb-20">
         <img
           src={loginImage}
           alt="Login"
-          className="h-full w-full object-cover"
+          className="w-auto h-auto max-w-full max-h-[100vh] object-contain"
         />
       </div>
 
-      <div className="w-full md:w-1/2 flex items-center justify-center">
+      <div className="flex w-full md:w-1/2 items-center justify-center px-0 mb-20">
         <form
           onSubmit={formik.handleSubmit}
           className="bg-white p-6 rounded w-full max-w-md"
@@ -62,7 +62,7 @@ const Login = () => {
 
           <button
             type="submit"
-            className="bg-blue-500 hover:bg-blue-600 text-white w-full py-2 rounded"
+            className="bg-sky-500 hover:bg-sky-600 text-white w-full py-2 rounded"
           >
             Login
           </button>
@@ -70,7 +70,7 @@ const Login = () => {
           <Link to="/signin">
             <button
               type="button"
-              className="bg-gray-500 hover:bg-gray-800 text-white mt-3 w-full py-2 rounded"
+              className="bg-gray-500 hover:bg-gray-600 text-white mt-3 w-full py-2 rounded"
             >
               Sign In
             </button>

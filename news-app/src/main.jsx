@@ -4,6 +4,7 @@ import App from "./App.jsx";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
+import SearchProvider from "./context/SearchProvider";
 
 import News from "./pages/News.jsx";
 import Technology from "./pages/Technology.jsx";
@@ -13,6 +14,7 @@ import Pc from "./pages/Pc.jsx";
 import Login from "./pages/Login.jsx";
 import Signin from "./pages/Signin.jsx";
 import Article from "./pages/Article.jsx";
+
 
 const queryClient = new QueryClient();
 
@@ -28,13 +30,14 @@ const router = createBrowserRouter([
       { path: "pc", element: <Pc /> },
       { path: "login", element: <Login /> },
       { path: "signin", element: <Signin /> },
-      {
-        path: "article/:id",
+      
+      {path: "article/:id",
         element: <Article />,
         errorElement: (
           <p className="text-center text-red-500 mt-4">Article not found.</p>
         ),
       },
+        
     ],
   },
 ]);
@@ -42,7 +45,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
+    <SearchProvider>
       <RouterProvider router={router} />
+      </SearchProvider>
     </QueryClientProvider>
   </React.StrictMode>
 );

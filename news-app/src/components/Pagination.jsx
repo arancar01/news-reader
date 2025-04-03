@@ -30,66 +30,68 @@ const Pagination = ({
 
   return (
     <div className="flex justify-center items-center flex-wrap gap-2 mt-10">
+      
       <button
         onClick={onPrev}
         disabled={currentPage === 1}
-        className={`px-3 py-1 text-sm rounded-md font-medium transition duration-200 ${
+        className={`px-4 py-2 rounded-md text-sm font-medium transition ${
           currentPage === 1
             ? "bg-gray-200 text-gray-400 cursor-not-allowed"
-            : "bg-cyan-600 text-white hover:bg-cyan-700"
+            : "bg-sky-500 text-white hover:bg-sky-600"
         }`}
       >
         ‹ Prev
       </button>
-
+      
       {pages[0] > 1 && (
         <>
           <button
             onClick={() => onNext(1)}
-            className="px-3 py-1 text-sm rounded-md font-medium border bg-white text-cyan-700 border-cyan-300 hover:bg-cyan-100"
+            className="px-3 py-1 rounded-md text-sm font-medium bg-white text-sky-700 hover:bg-sky-100 transition"
           >
             1
           </button>
-          {pages[0] > 2 && <span className="text-gray-400 px-1">...</span>}
+          {pages[0] > 2 && <span className="text-gray-400">...</span>}
         </>
       )}
-
+      
       {pages.map((page) => (
         <button
           key={page}
           onClick={() => onNext(page)}
           disabled={page === currentPage}
-          className={`px-4 py-1.5 text-sm rounded-md font-medium border transition duration-200 ${
+          className={`px-4 py-2 rounded-md text-sm font-medium transition ${
             page === currentPage
-              ? "bg-cyan-700 text-white border-cyan-700"
-              : "bg-white text-cyan-700 border-cyan-300 hover:bg-cyan-100"
+              ? "bg-sky-600 text-white"
+              : "bg-white text-gray-700 hover:bg-sky-100"
           }`}
         >
           {page}
         </button>
       ))}
-
+     
       {pages[pages.length - 1] < totalPages && (
         <>
           {pages[pages.length - 1] < totalPages - 1 && (
-            <span className="text-gray-400 px-1">...</span>
+            <span className="text-gray-400">...</span>
           )}
           <button
             onClick={() => onNext(totalPages)}
-            className="px-3 py-1 text-sm rounded-md font-medium border bg-white text-cyan-700 border-cyan-300 hover:bg-cyan-100"
+            className="px-3 py-1 rounded-md text-sm font-medium bg-white text-sky-700 hover:bg-sky-100 transition"
           >
             {totalPages}
           </button>
         </>
       )}
 
+  
       <button
         onClick={() => onNext(currentPage + 1)}
         disabled={currentPage === totalPages}
-        className={`px-3 py-1 text-sm rounded-md font-medium transition duration-200 ${
+        className={`px-4 py-2 rounded-md text-sm font-medium transition ${
           currentPage === totalPages
             ? "bg-gray-200 text-gray-400 cursor-not-allowed"
-            : "bg-cyan-600 text-white hover:bg-cyan-700"
+            : "bg-sky-500 text-white hover:bg-sky-600"
         }`}
       >
         Next ›

@@ -1,4 +1,4 @@
-import React from "react";
+{/*import React from "react";
 import Newscard from "./Newscard";
 
 const SearchResults = ({ results }) => {
@@ -16,4 +16,4 @@ const SearchResults = ({ results }) => {
   );
 };
 
-export default SearchResults;
+export default SearchResults;*/}

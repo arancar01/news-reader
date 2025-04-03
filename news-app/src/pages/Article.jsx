@@ -26,8 +26,12 @@ const Article = () => {
   if (error) return <p className="p-4 text-center text-red-600">{error}</p>;
 
   return (
+<<<<<<< HEAD
     <div className="max-w-7xl mx-auto px-4 md:px-6 py-6 flex flex-col md:flex-row gap-8">
       {/*محتوى المقال */}
+=======
+    <div className="max-w-7xl mx-auto px-4 md:px-6 py-6 flex flex-col md:flex-row gap-8 my-5 ">
+>>>>>>> 019863e (update: fix search bar, image style, colors and layout tweaks)
       <article className="md:w-2/3 w-full">
         {article.urlToImage ? (
           <img
@@ -78,7 +82,7 @@ const Article = () => {
         <div className="mt-6">
           <video controls width="100%" className="rounded shadow">
             <source src="/videos/news-intro.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
+            Your browser does not support the video tag...
           </video>
         </div>
       </aside>

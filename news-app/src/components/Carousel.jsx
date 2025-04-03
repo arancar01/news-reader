@@ -22,7 +22,7 @@ const Carousel = ({ articles }) => {
         className="rounded-lg"
       >
         {slides.map((article) => {
-          const realIndex = articles.indexOf(article); // -_-
+          const realIndex = articles.indexOf(article);
           return (
             <SwiperSlide key={realIndex}>
               <Link to={`/article/${realIndex}`}>

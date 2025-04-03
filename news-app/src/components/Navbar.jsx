@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import logo from "../assets/logo.png";
-
+import SearchContext from "../context/SearchContext";
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // toggle for mobile menu
-  const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem("user")); ///// simple login check
+  
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem("user"));
+  const { setSearchTerm } = useContext(SearchContext);
+  const [inputValue, setInputValue] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -18,9 +21,14 @@ const Navbar = () => {
   }, []);
 
   const handleLogout = () => {
-    localStorage.removeItem("user"); // log the user out
+      localStorage.removeItem("user");
     setIsLoggedIn(false);
     navigate("/login");
+  };
+
+  const handleSearch = (e) => {
+      e.preventDefault();
+    setSearchTerm(inputValue);
   };
 
   const navItems = [
@@ -28,6 +36,7 @@ const Navbar = () => {
     { path: "technology", link: "Technology" },
     { path: "economy", link: "Economy" },
     { path: "sports", link: "Sports" },
+
     { path: "pc", link: "PC" },
   ];
 
@@ -35,7 +44,11 @@ const Navbar = () => {
     <header className="bg-gray-200 px-1 py-2 shadow-md shadow-cyan-500/50 mt-5">
       <nav className="flex justify-center items-center w-full">
         <div className="flex items-center gap-6 flex-wrap justify-center">
+<<<<<<< HEAD
           {/* logo on the left */}
+=======
+          
+>>>>>>> 019863e (update: fix search bar, image style, colors and layout tweaks)
           <a href="/" className="flex items-center">
             <img src={logo} alt="AlxNews Logo" className="h-10 w-auto" />
           </a>
@@ -45,20 +58,30 @@ const Navbar = () => {
             {navItems.map(({ path, link }) => (
               <li key={path}>
                 <NavLink to={path}>
-                  <button className="px-3 py-2 bg-sky-500 text-white rounded-md hover:bg-blue-600 transition">
+                  <button className="px-3 py-2 bg-sky-500 text-white rounded-md hover:bg-sky-600 transition">
                     {link}
                   </button>
                 </NavLink>
               </li>
             ))}
           </ul>
+<<<<<<< HEAD
 
           {/* /search bar - only shows on medium+ screens */}
           <form className="hidden md:flex border border-gray-400 bg-gray-100 overflow-hidden text-black rounded-lg">
+=======
+          
+          <form
+            onSubmit={handleSearch}
+            className="hidden md:flex border border-gray-400 bg-gray-100 overflow-hidden text-black rounded-lg"
+          >
+>>>>>>> 019863e (update: fix search bar, image style, colors and layout tweaks)
             <input
               type="text"
               placeholder="search here"
               className="px-4 py-2 w-64 outline-none"
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
             />
           </form>
 
@@ -67,12 +90,12 @@ const Navbar = () => {
             {!isLoggedIn ? (
               <>
                 <NavLink to="/login">
-                  <button className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-sky-900 shadow-md">
+                  <button className="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-500 shadow-md">
                     login
                   </button>
                 </NavLink>
                 <NavLink to="/signin">
-                  <button className="px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 shadow-md hidden xl:flex">
+                  <button className="px-6 py-2 bg-sky-600 text-white rounded-lg hover:bg-sky-500 shadow-md hidden xl:flex">
                     sign in
                   </button>
                 </NavLink>
@@ -91,14 +114,15 @@ const Navbar = () => {
           <div className="md:hidden">
             <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
               {isMenuOpen ? (
-                <FaTimes className="w-6 h-6" /> // //close icon
+                <FaTimes className="w-6 h-6" />
               ) : (
-                <FaBars className="w-6 h-6" /> /// menu icon
+                <FaBars className="w-6 h-6" />
               )}
             </button>
           </div>
         </div>
       </nav>
+<<<<<<< HEAD
 
       {/* mobile menu - shows only if toggled open */}
       {isMenuOpen && (
@@ -146,6 +170,9 @@ const Navbar = () => {
         </div>
       )}
     </header>
+=======
+        </header>
+>>>>>>> 019863e (update: fix search bar, image style, colors and layout tweaks)
   );
 };
 

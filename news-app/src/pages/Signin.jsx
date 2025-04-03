@@ -2,6 +2,7 @@ import React from "react";
 import { useFormik } from "formik";
 import { useNavigate, Link } from "react-router-dom";
 import signinImage from "../assets/signin.png";
+
 const Signin = () => {
   const navigate = useNavigate();
 
@@ -18,18 +19,25 @@ const Signin = () => {
   });
 
   return (
+<<<<<<< HEAD
     <div className="flex min-h-screen">
       {/* Left Image */}
       <div className="hidden md:flex w-1/2 items-center justify-center bg-white">
+=======
+    <div className="flex my-20">
+      
+      <div className="hidden md:flex w-2/3 items-center justify-center bg-white mb-20">
+>>>>>>> 019863e (update: fix search bar, image style, colors and layout tweaks)
         <img
           src={signinImage}
           alt="Sign up visual"
-          className="max-w-full h-auto object-contain p-10"
+          className="w-auto h-auto max-w-full max-h-[100vh] object-contain"
         />
       </div>
 
-      <div className="flex w-full md:w-1/2 items-center justify-center px-4">
-        <div className="w-full max-w-md bg-white rounded-lg shadow-lg p-8">
+      
+      <div className="flex w-full md:w-1/2 items-center justify-center px-0 mb-20 " >
+        <div className="w-full max-w-sm bg-white rounded-lg mb-20 ">
           <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
             Create a new account
           </h2>
@@ -40,7 +48,7 @@ const Signin = () => {
               <input
                 type="text"
                 name="username"
-                className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-300"
+                className="w-full px-4 py-2 rounded bg-gray-100 focus:outline-none focus:ring focus:ring-sky-300"
                 onChange={formik.handleChange}
                 value={formik.values.username}
                 placeholder="Your name"
@@ -52,10 +60,10 @@ const Signin = () => {
               <input
                 type="email"
                 name="email"
-                className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-300"
+                className="w-full px-4 py-2 rounded bg-gray-100 focus:outline-none focus:ring focus:ring-sky-300"
                 onChange={formik.handleChange}
                 value={formik.values.email}
-                placeholder="example@email.com"
+                placeholder="Email"
               />
             </div>
 
@@ -64,16 +72,16 @@ const Signin = () => {
               <input
                 type="password"
                 name="password"
-                className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-300"
+                className="w-full px-4 py-2 rounded bg-gray-100 focus:outline-none focus:ring focus:ring-sky-300"
                 onChange={formik.handleChange}
                 value={formik.values.password}
-                placeholder="••••••••"
+                placeholder="Password"
               />
             </div>
 
             <button
               type="submit"
-              className="w-full py-2 px-4 bg-green-600 text-white rounded hover:bg-green-700 transition"
+              className="w-full py-2 px-4 bg-sky-600 text-white rounded hover:bg-sky-700 transition"
             >
               Sign Up
             </button>
@@ -81,7 +89,7 @@ const Signin = () => {
 
           <p className="mt-4 text-center text-sm text-gray-600">
             Already have an account?{" "}
-            <Link to="/login" className="text-blue-500 hover:underline">
+            <Link to="/login" className="text-sky-500 hover:underline">
               Log in
             </Link>
           </p>
