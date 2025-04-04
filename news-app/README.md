@@ -6,7 +6,7 @@ A modern, responsive news reader built with **React**, **Tailwind CSS**, and **N
 
 ## 🚀 Live Demo
 
-👉 [https://news-reader.vercel.app](https://news-reader.vercel.app)
+👉 https://news-reader-fawn.vercel.app/
 
 ---
 
